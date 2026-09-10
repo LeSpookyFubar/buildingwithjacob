@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="BuildingWithJacob — cybersecurity, AI, Linux, networking, and embedded systems build journal." />
   <title>BuildingWithJacob | Engineering in Public</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#071015" />
   <link rel="stylesheet" href="css/style.css" />
+  <meta property="og:title" content="BuildingWithJacob | Engineering in Public" />
+  <meta property="og:description" content="Cybersecurity, AI, Linux, networking, embedded systems, and the real build process behind them." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://buildingwithjacob.dev/" />
 </head>
 <body>
   <div class="page-grid" aria-hidden="true"></div>
@@ -84,17 +90,17 @@
       </article>
 
       <div class="project-grid">
-        <article class="project-card muted-card">
+        <article class="project-card project-card-link">
           <p class="card-index">02</p>
           <h3>Satellite Security Lab</h3>
           <p>Planned research environment for ground-to-space security, telemetry protection, detection, and autonomous mitigation experiments.</p>
-          <span class="pill subtle">PLANNED</span>
+          <div class="card-footer"><span class="pill subtle">PLANNED</span><a class="text-link" href="satellite-lab.html">Explore lab →</a></div>
         </article>
-        <article class="project-card muted-card">
+        <article class="project-card project-card-link">
           <p class="card-index">03</p>
           <h3>Network & Security Labs</h3>
           <p>Hands-on work across Linux, cloud, packet analysis, detection, troubleshooting, and defensive infrastructure.</p>
-          <span class="pill subtle">ONGOING</span>
+          <div class="card-footer"><span class="pill subtle">ONGOING</span><a class="text-link" href="security-labs.html">Explore labs →</a></div>
         </article>
       </div>
     </section>
@@ -144,9 +150,26 @@
       </div>
     </section>
 
+
+    <section class="section shell principles-section">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">04 / ENGINEERING PRINCIPLES</p>
+          <h2>How I want the work to hold up.</h2>
+        </div>
+        <p>A portfolio is stronger when it shows a method, not just a pile of finished screenshots.</p>
+      </div>
+      <div class="principles-grid">
+        <article class="principle-card"><span>01</span><h3>Build it</h3><p>Turn the idea into something real enough to fail.</p></article>
+        <article class="principle-card"><span>02</span><h3>Instrument it</h3><p>Measure what the system is actually doing.</p></article>
+        <article class="principle-card"><span>03</span><h3>Document it</h3><p>Keep the failures, fixes, decisions, and evidence.</p></article>
+        <article class="principle-card"><span>04</span><h3>Harden it</h3><p>Reduce assumptions, test boundaries, and improve resilience.</p></article>
+      </div>
+    </section>
+
     <section id="about" class="section shell about-section">
       <div class="about-card">
-        <p class="kicker">04 / ABOUT</p>
+        <p class="kicker">05 / ABOUT</p>
         <h2>Learning by building.</h2>
         <p>I’m Jacob. My work sits where cybersecurity, systems, networking, Linux, AI, and hardware overlap. I care less about collecting buzzwords than understanding what the machine is actually doing — and being able to prove it. I’m building this path with my wife and family in mind, because the work matters more when it serves the life I’m trying to build with them.</p>
       </div>

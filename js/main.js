@@ -32,3 +32,13 @@ if (face && state && message) {
     i += 1;
   }, 3500);
 }
+
+// Mark the current standalone page in navigation when possible.
+document.querySelectorAll('.site-nav a').forEach((link) => {
+  try {
+    const linkUrl = new URL(link.href, window.location.href);
+    if (linkUrl.pathname === window.location.pathname && !linkUrl.hash) {
+      link.setAttribute('aria-current', 'page');
+    }
+  } catch (_) {}
+});

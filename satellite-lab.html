@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BuildingWithJacob Satellite Security Lab — a planned ground-to-space cybersecurity research environment." />
+  <title>Satellite Security Lab | BuildingWithJacob</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#071015" />
+  <link rel="stylesheet" href="css/style.css" />
+  <meta property="og:title" content="Satellite Security Lab | BuildingWithJacob" />
+  <meta property="og:description" content="A planned lab for ground-to-space telemetry security, detection, and autonomous defensive research." />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">BWJ</span><span>BUILDINGWITHJACOB</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+    <nav class="site-nav">
+      <a href="index.html#work">Projects</a>
+      <a href="honeygotchi.html">Honeygotchi</a>
+      <a href="security-labs.html">Security Labs</a>
+      <a href="family.html">Family</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero shell">
+      <p class="kicker">RESEARCH DIRECTION / 002</p>
+      <div class="project-hero-grid">
+        <div>
+          <h1>Satellite Security Lab</h1>
+          <p class="project-subtitle">A ground-to-space security research environment, built one verified layer at a time.</p>
+          <p class="hero-copy">The goal is to create a safe simulated environment for studying telemetry, communications security, anomaly detection, and defensive automation without pretending unfinished work is already operational.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#architecture">View architecture</a>
+            <a class="btn btn-secondary" href="#roadmap">Research roadmap</a>
+          </div>
+        </div>
+        <div class="research-status">
+          <p class="kicker">LAB STATUS</p>
+          <div class="status-row"><span>Phase</span><strong>Planning</strong></div>
+          <div class="status-row"><span>Focus</span><strong>Ground segment</strong></div>
+          <div class="status-row"><span>Method</span><strong>Simulation first</strong></div>
+          <div class="status-row"><span>Rule</span><strong>Evidence before claims</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="architecture">
+      <div class="section-heading">
+        <div><p class="kicker">CONCEPT ARCHITECTURE</p><h2>Start on the ground. Model the link. Emulate the spacecraft.</h2></div>
+        <p>The first useful version does not need a real satellite. It needs a controlled system where traffic, faults, and defensive responses can be observed and reproduced.</p>
+      </div>
+      <div class="architecture-flow">
+        <div class="arch-node">GROUND STATION<br><small>Operator + services</small></div><span>→</span>
+        <div class="arch-node">COMMS LINK<br><small>Telemetry + commands</small></div><span>→</span>
+        <div class="arch-node">SATELLITE EMULATOR<br><small>Simulated subsystem</small></div><span>→</span>
+        <div class="arch-node">DETECTION LAYER<br><small>Logs + scoring + response</small></div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <div><p class="kicker">RESEARCH QUESTIONS</p><h2>What the lab should eventually answer.</h2></div>
+        <p>These questions keep the project useful and stop it from becoming a collection of buzzwords.</p>
+      </div>
+      <div class="project-grid three">
+        <article class="project-card"><p class="card-index">01</p><h3>Telemetry integrity</h3><p>How can the system recognize unexpected or manipulated telemetry patterns?</p></article>
+        <article class="project-card"><p class="card-index">02</p><h3>Behavioral detection</h3><p>What does normal ground-station and simulated spacecraft behavior look like, and how should anomalies be scored?</p></article>
+        <article class="project-card"><p class="card-index">03</p><h3>Autonomous mitigation</h3><p>Which small defensive actions can be automated safely, and which should always require a human decision?</p></article>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <div><p class="kicker">SAFE TEST SCENARIOS</p><h2>Controlled failures before clever defenses.</h2></div>
+        <p>All scenarios are intended for an isolated lab environment with systems and traffic created for testing.</p>
+      </div>
+      <div class="scenario-grid">
+        <article><strong>Malformed telemetry</strong><p>Inject deliberately invalid values and test validation, logging, and alerting.</p></article>
+        <article><strong>Unexpected command pattern</strong><p>Model commands outside an established baseline and measure detection quality.</p></article>
+        <article><strong>Link interruption</strong><p>Simulate loss, delay, and recovery to distinguish faults from hostile behavior.</p></article>
+        <article><strong>Credential misuse simulation</strong><p>Use lab-only accounts to test identity controls and audit trails.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="roadmap">
+      <p class="kicker">ROADMAP</p>
+      <div class="roadmap">
+        <div class="roadmap-item current"><span>0.1</span><div><strong>Model</strong><p>Document the components, trust boundaries, data flows, and research questions.</p></div></div>
+        <div class="roadmap-item"><span>0.2</span><div><strong>Emulate</strong><p>Build a local ground-station service and satellite/telemetry emulator.</p></div></div>
+        <div class="roadmap-item"><span>0.3</span><div><strong>Observe</strong><p>Centralize logs and establish normal-behavior baselines.</p></div></div>
+        <div class="roadmap-item"><span>0.4</span><div><strong>Detect</strong><p>Add event correlation, anomaly scoring, and reproducible test scenarios.</p></div></div>
+        <div class="roadmap-item"><span>0.5</span><div><strong>Respond</strong><p>Test bounded defensive automation with explicit safety controls.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section shell honesty-card">
+      <p class="kicker">ENGINEERING NOTE</p>
+      <h2>Planned research, not claimed capability.</h2>
+      <p>This page describes a build direction. As each layer becomes real, the page should gain diagrams, screenshots, logs, test results, and code references that prove what was actually implemented.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div><strong>BUILDINGWITHJACOB</strong><p>Ground-to-space security starts with disciplined ground work.</p></div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="security-labs.html">Security Labs</a><a href="family.html">Family</a></div>
+    <small>© <span id="year"></span> Jacob</small>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

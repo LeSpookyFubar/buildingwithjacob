@@ -1,21 +1,30 @@
-# buildingwithjacob
+# BuildingWithJacob
 
-Personal portfolio and public engineering build journal focused on cybersecurity, AI, Linux, networking, embedded systems, and hands-on technical projects.
+Personal engineering portfolio and public build journal.
 
-## Current featured build
+## Current project pages
 
-**Honeygotchi** — a physical cybersecurity companion built on Raspberry Pi.
-
-Current public milestone: **v0.1.1 / System Awareness**
-
-## Site structure
-
-- `index.html` — portfolio / engineering lab homepage
-- `honeygotchi.html` — dedicated Honeygotchi project page and roadmap
-- `family.html` — dedication page for the people behind the work
-- `css/style.css` — shared responsive styling
-- `js/main.js` — mobile navigation and Honeygotchi website demo
+- `honeygotchi.html` — Raspberry Pi cybersecurity companion
+- `satellite-lab.html` — planned ground-to-space security research lab
+- `security-labs.html` — Linux, networking, cloud, troubleshooting, detection, and hardening labs
+- `family.html` — the people and home behind the work
 
 ## Philosophy
 
-The site documents what actually works, what failed, and what changed. Roadmap items are labeled as future work instead of being presented as completed capabilities.
+Build it. Instrument it. Document it. Harden it.
+
+The site intentionally separates finished capability from planned work. Project pages should gain screenshots, diagrams, logs, test results, and code references as each layer becomes real.
+
+## Local preview
+
+From the repository folder:
+
+```powershell
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+## Deployment
+
+GitHub Pages from the `main` branch. Custom domain: `buildingwithjacob.dev`.

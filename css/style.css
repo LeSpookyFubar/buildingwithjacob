@@ -188,3 +188,8 @@ pre span{color:var(--accent)}
 @media(max-width:850px){
   .family-grid{grid-template-columns:1fr}
 }
+
+.wife-card{
+  border-color:rgba(119,227,180,.45);
+  box-shadow:inset 3px 0 0 rgba(119,227,180,.7), 0 18px 60px rgba(0,0,0,.18);
+}

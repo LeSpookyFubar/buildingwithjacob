@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Honeygotchi — a physical cybersecurity companion built on Raspberry Pi." />
+  <title>Honeygotchi | BuildingWithJacob</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">BWJ</span>
+      <span>BUILDINGWITHJACOB</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html#work">Projects</a>
+      <a href="index.html#journal">Journal</a>
+      <a href="index.html#mission">Mission</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-hero shell">
+      <p class="kicker">FEATURED BUILD / 001</p>
+      <div class="project-hero-grid">
+        <div>
+          <h1>Honeygotchi</h1>
+          <p class="project-subtitle">A physical cybersecurity companion built from the ground up.</p>
+          <p class="hero-copy">
+            Honeygotchi combines a Raspberry Pi, Linux, Python, system telemetry, and a personality state engine. Today it can observe itself. The next step is learning to react to real network events.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#buildlog">View build log</a>
+            <a class="btn btn-secondary" href="#roadmap">Roadmap</a>
+          </div>
+        </div>
+
+        <div class="honey-panel">
+          <div class="honey-face" id="honeyFace">( o_o )</div>
+          <div class="honey-state" id="honeyState">WATCHING</div>
+          <p id="honeyMessage">Something caught my attention.</p>
+          <div class="honey-grid">
+            <div><span>VERSION</span><strong>0.1.1</strong></div>
+            <div><span>PLATFORM</span><strong>Pi 4</strong></div>
+            <div><span>MODE</span><strong>Development</strong></div>
+            <div><span>STATUS</span><strong>Online</strong></div>
+          </div>
+          <small>Website demo cycles prototype personality states. Device telemetry is not streamed publicly.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">WHAT IT IS</p>
+          <h2>Personality on top. Engineering underneath.</h2>
+        </div>
+        <p>Honeygotchi is meant to make defensive systems understandable and tangible without pretending the machine is conscious.</p>
+      </div>
+      <div class="project-grid three">
+        <article class="project-card">
+          <p class="card-index">01</p>
+          <h3>Physical</h3>
+          <p>A real Raspberry Pi device, eventually paired with its own dedicated display and enclosure.</p>
+        </article>
+        <article class="project-card">
+          <p class="card-index">02</p>
+          <h3>Aware</h3>
+          <p>Reads real system information such as uptime and CPU temperature, with network telemetry coming next.</p>
+        </article>
+        <article class="project-card">
+          <p class="card-index">03</p>
+          <h3>Defensive</h3>
+          <p>Designed to grow toward controlled deception, event logging, threat scoring, alerts, and behavioral analysis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell architecture">
+      <p class="kicker">ARCHITECTURE</p>
+      <h2>Designed as layers.</h2>
+      <div class="architecture-flow">
+        <div class="arch-node">SYSTEM + NETWORK<br><small>Telemetry</small></div>
+        <span>→</span>
+        <div class="arch-node">EVENT ENGINE<br><small>Interpretation</small></div>
+        <span>→</span>
+        <div class="arch-node">STATE ENGINE<br><small>Personality</small></div>
+        <span>→</span>
+        <div class="arch-node">DISPLAY + LOGS<br><small>Response</small></div>
+      </div>
+      <p class="architecture-note">Future layers add isolated deception services and an intelligence engine. Those are roadmap items, not finished capabilities.</p>
+    </section>
+
+    <section id="buildlog" class="section shell">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">BUILD LOG</p>
+          <h2>First heartbeat.</h2>
+        </div>
+        <p>The point of this log is to show the real process, including the failures that made the system better.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-date">DAY 01</div>
+          <div>
+            <h3>Bring the machine online</h3>
+            <p>Flashed Raspberry Pi OS Lite, verified the SD partitions, established a temporary provisioning network, enabled SSH, repaired package state, and completed a clean reboot.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">DAY 02</div>
+          <div>
+            <h3>Give it a personality</h3>
+            <p>Created the first Python state engine with CALM, WATCHING, CURIOUS, NERVOUS, DEFENSIVE, LEARNING, and SLEEPING states.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-date">DAY 03</div>
+          <div>
+            <h3>Make the heartbeat real</h3>
+            <p>Added heartbeat count, system uptime, CPU temperature, clock data, and moved Honeygotchi from the Windows hotspot onto the home LAN.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section shell">
+      <p class="kicker">ROADMAP</p>
+      <div class="roadmap">
+        <div class="roadmap-item done"><span>0.1</span><div><strong>Alive</strong><p>Boot, SSH, personality prototype.</p></div></div>
+        <div class="roadmap-item current"><span>0.1.1</span><div><strong>Self-aware</strong><p>Heartbeat and real system telemetry.</p></div></div>
+        <div class="roadmap-item"><span>0.2</span><div><strong>Network aware</strong><p>IP, interface, signal, connectivity, and event inputs.</p></div></div>
+        <div class="roadmap-item"><span>0.3</span><div><strong>Watching</strong><p>Controlled deception services and event logging.</p></div></div>
+        <div class="roadmap-item"><span>0.4</span><div><strong>Learning</strong><p>Threat scoring and behavioral analysis.</p></div></div>
+        <div class="roadmap-item"><span>1.0</span><div><strong>Defensive companion</strong><p>Physical display, alerts, documented architecture, and polished deployment.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section shell honesty-card">
+      <p class="kicker">ENGINEERING NOTE</p>
+      <h2>No fake sophistication.</h2>
+      <p>Honeygotchi’s current emotional states are a prototype personality system. They are not yet driven by live threat detection. This page will change as the device earns each capability.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div>
+      <strong>HONEYGOTCHI / BUILDINGWITHJACOB</strong>
+      <p>Small machine. Serious direction.</p>
+    </div>
+    <a class="text-link" href="index.html">← Back home</a>
+    <small>© <span id="year"></span> Jacob</small>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

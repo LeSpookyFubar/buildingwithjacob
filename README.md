@@ -12,6 +12,7 @@ Current public milestone: **v0.1.1 / System Awareness**
 
 - `index.html` — portfolio / engineering lab homepage
 - `honeygotchi.html` — dedicated Honeygotchi project page and roadmap
+- `family.html` — dedication page for the people behind the work
 - `css/style.css` — shared responsive styling
 - `js/main.js` — mobile navigation and Honeygotchi website demo
 

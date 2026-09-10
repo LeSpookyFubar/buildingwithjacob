@@ -142,3 +142,49 @@ pre span{color:var(--accent)}
   .timeline-item{grid-template-columns:1fr;gap:8px}
   .architecture-flow>span{display:none}
 }
+
+
+/* Family page */
+.family-hero{padding:105px 0 45px;max-width:980px}
+.family-hero h1{max-width:900px}
+.family-feature{
+  display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:center;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(18,34,42,.92),rgba(8,19,24,.95));
+  border-radius:var(--radius);padding:42px
+}
+.family-feature p:last-child{color:#a9bbc4;max-width:720px}
+.family-symbol{
+  width:180px;height:180px;border-radius:50%;display:grid;place-items:center;
+  justify-self:center;font-size:4rem;color:var(--accent);
+  border:1px solid rgba(119,227,180,.32);
+  background:radial-gradient(circle,rgba(119,227,180,.09),transparent 68%);
+  box-shadow:0 0 70px rgba(119,227,180,.08)
+}
+.family-card{min-height:260px}
+.family-note{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  margin-bottom:70px
+}
+.family-note blockquote{
+  margin:20px 0 24px;padding-left:24px;border-left:3px solid var(--accent);
+  font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.25;letter-spacing:-.03em;
+  max-width:900px
+}
+.family-note>p:last-child{color:var(--muted);max-width:780px}
+@media(max-width:850px){
+  .family-feature{grid-template-columns:1fr}
+  .family-symbol{justify-self:start;width:120px;height:120px}
+}
+
+
+.family-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.pets-section{border-top:1px solid var(--line)}
+.pet-card h3{color:var(--accent)}
+@media(max-width:850px){
+  .family-grid{grid-template-columns:1fr}
+}

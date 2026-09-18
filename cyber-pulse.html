@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cyber Pulse — a friendly cyber activity visualization by BuildingWithJacob." />
+  <title>Cyber Pulse | BuildingWithJacob</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#071015" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .pulse-hero{padding:92px 0 38px}.pulse-hero h1{max-width:980px;margin-bottom:24px}.pulse-hero .hero-copy{max-width:760px}
+    .pulse-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:16px;align-items:stretch}
+    .pulse-panel,.pulse-side,.pulse-card,.pulse-honesty{border:1px solid var(--line);background:linear-gradient(180deg,rgba(18,34,42,.9),rgba(8,19,24,.94));border-radius:var(--radius);box-shadow:0 18px 60px rgba(0,0,0,.22)}
+    .pulse-panel{padding:18px;min-height:600px;position:relative;overflow:hidden}.pulse-top{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line);font:700 .72rem ui-monospace,monospace;letter-spacing:.09em;color:var(--muted)}
+    .pulse-mode{color:var(--accent)}.pulse-mode i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);margin-right:8px}
+    #pulseCanvas{display:block;width:100%;height:500px;margin-top:16px;border-radius:14px;background:radial-gradient(circle at 50% 45%,rgba(119,227,180,.06),transparent 55%),rgba(4,12,16,.62)}
+    .pulse-side{padding:24px;display:flex;flex-direction:column;gap:18px}.pulse-side h2{font-size:2rem;margin-bottom:4px}.pulse-side>p{color:var(--muted)}
+    .weather{border:1px solid rgba(119,227,180,.32);border-radius:14px;padding:18px;background:rgba(119,227,180,.035)}.weather strong{display:block;font-size:1.7rem;margin:4px 0}.weather p{color:#a9bbc4;margin:0}
+    .pulse-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pulse-stat{border:1px solid var(--line);border-radius:12px;padding:15px;background:rgba(255,255,255,.018)}.pulse-stat span{display:block;color:var(--muted);font:700 .64rem ui-monospace,monospace;letter-spacing:.08em}.pulse-stat strong{display:block;font-size:1.35rem;margin-top:3px}
+    .legend{display:grid;gap:8px}.legend-row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.84rem;color:#b8c8cf}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;background:var(--accent)}.blue{background:var(--accent2)}.soft{background:#d0b4ff}.gold{background:#e7d58a}.coral{background:#ef9b8f}
+    .pulse-feed{max-height:150px;overflow:auto;border-top:1px solid var(--line)}.feed-item{display:grid;grid-template-columns:72px 1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid rgba(29,49,59,.7);font:600 .7rem ui-monospace,monospace;color:#a9bbc4}.feed-item b{color:var(--text)}.feed-item em{font-style:normal;color:var(--accent)}
+    .pulse-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.pulse-control{border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--text);border-radius:9px;padding:9px 11px;cursor:pointer;font:700 .72rem ui-monospace,monospace}.pulse-control:hover,.pulse-control.active{border-color:rgba(119,227,180,.55);color:var(--accent)}
+    .pulse-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pulse-card{padding:24px}.pulse-card span{color:var(--accent);font:700 .68rem ui-monospace,monospace;letter-spacing:.09em}.pulse-card h3{margin:12px 0 8px}.pulse-card p{color:var(--muted);margin:0}.pulse-honesty{padding:30px;border-color:rgba(143,185,255,.28)}.pulse-honesty p:last-child{color:#a9bbc4;max-width:850px;margin-bottom:0}
+    .map-shell{border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:linear-gradient(145deg,rgba(18,34,42,.96),rgba(7,16,21,.97));overflow:hidden;position:relative}.map-shell:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(119,227,180,.08),transparent 30%),radial-gradient(circle at 85% 70%,rgba(143,185,255,.08),transparent 33%);pointer-events:none}.map-intro{position:relative;display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}.map-intro>div{max-width:690px}.map-intro p:last-child{color:var(--muted);margin-bottom:0}.map-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.map-node{min-height:190px;border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(5,14,18,.74)}.map-node b{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:50%;background:rgba(119,227,180,.11);color:var(--accent);font:700 .72rem ui-monospace,monospace}.map-node h3{font-size:1.05rem;margin:18px 0 8px}.map-node p{color:var(--muted);font-size:.86rem;margin:0}.map-node.future{border-style:dashed}.blueprint-callout{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;margin-top:16px;padding:25px;border:1px solid rgba(119,227,180,.3);border-radius:14px;background:rgba(119,227,180,.035)}.blueprint-callout h3{margin:4px 0 8px}.blueprint-callout p{color:var(--muted);margin:0;max-width:720px}
+    @media(max-width:900px){.pulse-layout{grid-template-columns:1fr}#pulseCanvas{height:430px}.pulse-info,.map-grid{grid-template-columns:1fr 1fr}.map-intro{align-items:start;flex-direction:column}.blueprint-callout{grid-template-columns:1fr}}@media(max-width:560px){.pulse-stats,.map-grid{grid-template-columns:1fr}#pulseCanvas{height:360px}.pulse-top{flex-direction:column}.map-shell{padding:21px}}
+  </style>
+</head>
+<body>
+  <div class="page-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="BuildingWithJacob home"><span class="brand-mark">BWJ</span><span>BUILDINGWITHJACOB</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
+    <nav class="site-nav" aria-label="Primary navigation"><a href="index.html#work">Projects</a><a href="cyber-pulse.html" aria-current="page">Cyber Pulse</a><a href="honeygotchi.html">Honeygotchi</a><a href="index.html#about">About</a><a href="family.html">Family</a></nav>
+  </header>
+  <main>
+    <section class="pulse-hero shell">
+      <p class="kicker">CYBER PULSE / FRIENDLY THREAT VISUALIZATION</p>
+      <h1>See the internet <span>breathe.</span></h1>
+      <p class="hero-copy">A friendlier way to explore cybersecurity activity. Instead of turning every signal into a scary red alert, Cyber Pulse separates observations, disruptions, and higher-interest events — and explains what they actually mean.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#live">Open the pulse</a><a class="btn btn-secondary" href="honeygotchi.html">Meet Honeygotchi</a></div>
+    </section>
+
+    <section id="live" class="section shell" style="padding-top:35px">
+      <div class="pulse-layout">
+        <div class="pulse-panel">
+          <div class="pulse-top"><span>GLOBAL SIGNAL VIEW</span><span class="pulse-mode"><i></i>DEMO DATA</span></div>
+          <canvas id="pulseCanvas" aria-label="Animated demo visualization of global cybersecurity signals"></canvas>
+        </div>
+        <aside class="pulse-side">
+          <div><p class="kicker">CYBER WEATHER</p><h2>Mostly quiet.</h2><p>This visualization is intentionally calm. A signal is something to understand before it is something to fear.</p></div>
+          <div class="weather"><span class="kicker">CURRENT POSTURE</span><strong>OBSERVING</strong><p>Routine simulated activity with no confirmed malicious event.</p></div>
+          <div class="pulse-stats"><div class="pulse-stat"><span>SIGNALS</span><strong id="signalCount">0</strong></div><div class="pulse-stat"><span>ACTIVE</span><strong id="activeCount">0</strong></div><div class="pulse-stat"><span>QUIET %</span><strong id="quietPercent">94%</strong></div><div class="pulse-stat"><span>MODE</span><strong style="font-size:1rem">DEMO</strong></div></div>
+          <div class="legend"><div class="legend-row"><span><i class="dot"></i>DNS</span><span>Name resolution</span></div><div class="legend-row"><span><i class="dot blue"></i>WEB</span><span>Web activity</span></div><div class="legend-row"><span><i class="dot soft"></i>AUTH</span><span>Authentication</span></div><div class="legend-row"><span><i class="dot gold"></i>VULN</span><span>Vulnerability</span></div><div class="legend-row"><span><i class="dot coral"></i>ALERT</span><span>Needs attention</span></div></div>
+          <div class="pulse-feed" id="pulseFeed" aria-live="polite"></div>
+          <div class="pulse-controls"><button class="pulse-control active" data-speed="1">CALM</button><button class="pulse-control" data-speed="2">BUSY</button><button class="pulse-control" id="pausePulse">PAUSE</button></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading"><div><p class="kicker">HOW TO READ IT</p><h2>Signals, not scare tactics.</h2></div><p>Cyber Pulse is designed to teach what different kinds of security activity mean while keeping uncertainty visible.</p></div>
+      <div class="pulse-info"><article class="pulse-card"><span>01 / OBSERVE</span><h3>Something happened.</h3><p>A DNS lookup, web event, authentication attempt, or other signal is simply an observation until context says otherwise.</p></article><article class="pulse-card"><span>02 / CORRELATE</span><h3>Look for patterns.</h3><p>Repeated or related events matter more than isolated dots. This mirrors Honeygotchi's memory and anomaly engines.</p></article><article class="pulse-card"><span>03 / EXPLAIN</span><h3>Tell people why.</h3><p>The goal is not a wall of red warnings. The goal is a clear explanation of what is known, uncertain, and worth attention.</p></article></div>
+    </section>
+
+    <section class="section shell" id="cybermap">
+      <div class="map-shell">
+        <div class="map-intro"><div><p class="kicker">HONEYGOTCHI CYBERMAP</p><h2>One small guardian. A much larger horizon.</h2><p>The map connects the physical device on Jacob's desk to the long-term defense mission. Each layer must be proven before the next one earns our trust.</p></div><a class="btn btn-secondary" href="#blueprint">Read the field manual</a></div>
+        <div class="map-grid">
+          <article class="map-node"><b>01</b><h3>Home Node</h3><p>Boot, network health, device metrics, and friendly local explanations on hardware we control.</p></article>
+          <article class="map-node"><b>02</b><h3>Pattern Memory</h3><p>Learn normal behavior, compare new signals, and record why something deserves attention.</p></article>
+          <article class="map-node future"><b>03</b><h3>Cyber Pulse</h3><p>Visualize sanitized telemetry beside clearly labeled demo and public-source intelligence.</p></article>
+          <article class="map-node future"><b>04</b><h3>Ground to Space</h3><p>Research telemetry, communications security, UEBA, and bounded autonomous mitigation.</p></article>
+        </div>
+      </div>
+      <div class="blueprint-callout" id="blueprint"><div><p class="kicker">FIELD MANUAL 001</p><h3>HoneyGotchi Pioneer Blueprint</h3><p>The honest engineering record: mission, architecture, parts, build steps, the SD-card and first-boot failures, troubleshooting map, career value, and our next milestones.</p></div><a class="btn btn-primary" href="HoneyGotchi-Pioneer-Blueprint.pdf" download>Download blueprint</a></div>
+    </section>
+
+    <section class="section shell"><div class="pulse-honesty"><p class="kicker">DATA HONESTY</p><h2>This first version is a visualization prototype.</h2><p>The animated events are generated demo data for design and education — not claims about live attacks in specific places. The roadmap is to connect Cyber Pulse to clearly labeled public threat-intelligence sources and selected Honeygotchi telemetry while preserving privacy and source attribution.</p></div></section>
+  </main>
+  <footer class="site-footer shell"><div><strong>BUILDINGWITHJACOB</strong><p>Engineering in public. One working layer at a time.</p></div><div class="footer-links"><a href="honeygotchi.html">Honeygotchi</a><a href="cyber-pulse.html">Cyber Pulse</a><a href="family.html">Family</a></div><small>© <span id="year"></span> Jacob</small></footer>
+  <script src="js/main.js"></script>
+  <script>
+  (()=>{const c=document.getElementById('pulseCanvas');if(!c)return;const x=c.getContext('2d'),sc=document.getElementById('signalCount'),ac=document.getElementById('activeCount'),qp=document.getElementById('quietPercent'),feed=document.getElementById('pulseFeed'),pause=document.getElementById('pausePulse'),speedBtns=[...document.querySelectorAll('[data-speed]')];const pal={DNS:'#77e3b4',WEB:'#8fb9ff',AUTH:'#d0b4ff',VULN:'#e7d58a',ALERT:'#ef9b8f'};const p=[['Los Angeles',.14,.47],['Seattle',.12,.28],['New York',.25,.38],['Mexico City',.20,.61],['São Paulo',.36,.77],['London',.49,.31],['Madrid',.46,.43],['Lagos',.50,.63],['Cairo',.58,.51],['Johannesburg',.57,.82],['Mumbai',.70,.56],['Singapore',.79,.67],['Tokyo',.88,.39],['Sydney',.88,.79],['Seoul',.84,.38],['Dubai',.64,.52]];let e=[],total=0,paused=false,speed=1,last=0;
+  function resize(){const d=Math.min(devicePixelRatio||1,2),r=c.getBoundingClientRect();c.width=Math.round(r.width*d);c.height=Math.round(r.height*d);x.setTransform(d,0,0,d,0,0)}
+  function feedAdd(v){const i=document.createElement('div');i.className='feed-item';i.innerHTML=`<span>${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})}</span><b>${v.place}</b><em>${v.type}</em>`;feed.prepend(i);while(feed.children.length>6)feed.lastElementChild.remove()}
+  function spawn(){const [place,px,py]=p[Math.floor(Math.random()*p.length)],r=Math.random(),type=r<.34?'DNS':r<.62?'WEB':r<.79?'AUTH':r<.94?'VULN':'ALERT',t=p[Math.floor(Math.random()*p.length)];const v={place,type,x:px,y:py,tx:t[1],ty:t[2],born:performance.now(),life:2600+Math.random()*1800};e.push(v);total++;feedAdd(v)}
+  function grid(w,h){x.save();x.strokeStyle='rgba(143,185,255,.09)';const cx=w/2,cy=h/2,rx=w*.43,ry=h*.39;x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);x.stroke();for(let i=1;i<6;i++){const yy=cy-ry+2*ry*i/6,half=rx*Math.sqrt(Math.max(0,1-Math.pow((yy-cy)/ry,2)));x.beginPath();x.moveTo(cx-half,yy);x.lineTo(cx+half,yy);x.stroke()}x.restore()}
+  function draw(now){const w=c.clientWidth,h=c.clientHeight;x.clearRect(0,0,w,h);grid(w,h);e=e.filter(v=>now-v.born<v.life);for(const v of e){const a=Math.sin(Math.min(1,(now-v.born)/v.life)*Math.PI),sx=v.x*w,sy=v.y*h,tx=v.tx*w,ty=v.ty*h;x.save();x.globalAlpha=.18*a;x.strokeStyle=pal[v.type];x.beginPath();x.moveTo(sx,sy);x.quadraticCurveTo((sx+tx)/2,Math.min(sy,ty)-45,tx,ty);x.stroke();x.globalAlpha=.9*a;x.fillStyle=pal[v.type];x.shadowColor=pal[v.type];x.shadowBlur=14;x.beginPath();x.arc(sx,sy,v.type==='ALERT'?5:3.5,0,Math.PI*2);x.fill();x.restore()}sc.textContent=total.toLocaleString();ac.textContent=e.length;qp.textContent=`${Math.max(72,96-Math.min(24,e.length*2))}%`;requestAnimationFrame(draw)}
+  function tick(now){if(!paused&&now-last>1450/speed){spawn();last=now}requestAnimationFrame(tick)}
+  speedBtns.forEach(b=>b.addEventListener('click',()=>{speed=Number(b.dataset.speed)||1;speedBtns.forEach(z=>z.classList.remove('active'));b.classList.add('active')}));pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?'RESUME':'PAUSE';pause.classList.toggle('active',paused)});addEventListener('resize',resize);resize();for(let i=0;i<5;i++)spawn();requestAnimationFrame(draw);requestAnimationFrame(tick)})();
+  </script>
+</body>
+</html>

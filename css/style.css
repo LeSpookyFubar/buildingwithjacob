@@ -259,3 +259,83 @@ pre span{color:var(--accent)}
 @media(max-width:560px){
   .principles-grid,.scenario-grid,.evidence-grid{grid-template-columns:1fr}
 }
+
+/* Homepage Cybermap addition */
+.cybermap-home{border-top:1px solid var(--line)}
+.cybermap-shell{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+  background:
+    radial-gradient(circle at 12% 15%,rgba(119,227,180,.08),transparent 30%),
+    radial-gradient(circle at 88% 80%,rgba(143,185,255,.08),transparent 34%),
+    linear-gradient(145deg,rgba(18,34,42,.96),rgba(7,16,21,.98));
+  box-shadow:0 18px 60px rgba(0,0,0,.2)
+}
+.cybermap-path{
+  display:grid;
+  grid-template-columns:1fr 38px 1fr 38px 1fr 38px 1fr;
+  gap:0;
+  align-items:center
+}
+.cybermap-node{
+  min-height:220px;
+  display:grid;
+  grid-template-columns:38px 1fr;
+  gap:14px;
+  align-items:start;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(5,14,18,.72)
+}
+.cybermap-node.current{
+  border-color:rgba(119,227,180,.5);
+  box-shadow:inset 3px 0 0 var(--accent)
+}
+.cybermap-node.future{border-style:dashed}
+.cybermap-node>span{
+  display:grid;
+  place-items:center;
+  width:34px;height:34px;
+  border-radius:50%;
+  background:rgba(119,227,180,.1);
+  color:var(--accent);
+  font:800 .72rem ui-monospace,monospace
+}
+.cybermap-node h3{margin:6px 0 10px;font-size:1.08rem}
+.cybermap-node p:last-child{color:var(--muted);font-size:.88rem;margin-bottom:0}
+.node-state{
+  color:var(--accent);
+  font:700 .62rem ui-monospace,monospace;
+  letter-spacing:.08em;
+  margin-bottom:0
+}
+.cybermap-arrow{
+  text-align:center;
+  color:var(--accent2);
+  font-size:1.4rem
+}
+.cybermap-actions{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:center;
+  margin-top:18px;
+  padding:24px;
+  border:1px solid rgba(119,227,180,.28);
+  border-radius:14px;
+  background:rgba(119,227,180,.035)
+}
+.cybermap-actions h3{margin:5px 0 8px}
+.cybermap-actions p:last-child{color:var(--muted);margin-bottom:0;max-width:700px}
+.cybermap-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.cybermap-honesty{margin:16px 0 0;color:var(--muted);font-size:.82rem}
+.cybermap-honesty strong{color:var(--text)}
+@media(max-width:950px){
+  .cybermap-path{grid-template-columns:1fr}
+  .cybermap-arrow{transform:rotate(90deg);padding:6px}
+  .cybermap-node{min-height:auto}
+  .cybermap-actions{grid-template-columns:1fr}
+  .cybermap-buttons{justify-content:flex-start}
+}

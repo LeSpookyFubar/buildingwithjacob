@@ -1,0 +1,4 @@
+Ground Station Zero free sample v1.0
+Copyright 2026 Jacob Zepeda / BuildingWithJacob.
+
+You may use and adapt this two-mission sample for personal/internal learning and publish your own findings with attribution and a synthetic-data label. You may share this complete unchanged free sample with attribution and this notice. You may not sell the sample or claim endorsement. This permission does not include the separate paid kit, its additional scenarios or workbook. Provided as-is, without warranty, security certification or guarantee of outcomes. Public teaching key: not production protection.

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "replay",
+  "title": "02 / The duplicate in the stream",
+  "simulated": true,
+  "referenceTime": "2026-06-01T12:02:00Z",
+  "records": [
+    {
+      "timestamp": "2026-06-01T12:00:00Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 10,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "aa1719ec12fa95171346bfdcfdfb76b7968dcdc10af9ee9f8bb1f449812ade36"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:10Z",
+      "station_id": "GS-BRAVO",
+      "sequence": 10,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "53601bae859a03ec7205ee49d3e7eef1fa51ef0b384776ce42e1aff08339714f"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:30Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 11,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "3b871979f3d5b8ba6d13de48a3ee84568fb961775ba3ac2e0e8dfc0df0c6f1bb"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:30Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 11,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "3b871979f3d5b8ba6d13de48a3ee84568fb961775ba3ac2e0e8dfc0df0c6f1bb"
+    },
+    {
+      "timestamp": "2026-06-01T12:01:00Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 13,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "1dd0da754b06622565ac4fbd31ce4ccb1b338aace535e2e813a6e22b9cc272e9"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:45Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 12,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "a64f1d94be00987e0cdc61c5be71f3ff1b4bf7264ee45a810f1774fbb84a0cfd"
+    }
+  ]
+}

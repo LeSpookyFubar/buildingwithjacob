@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "baseline",
+  "title": "01 / Establish the baseline",
+  "simulated": true,
+  "referenceTime": "2026-06-01T12:02:00Z",
+  "records": [
+    {
+      "timestamp": "2026-06-01T12:00:00Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 100,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "b748d47fde23139115b1b3a674f68cd0baf38b11bd3204ae9d44893be505a0af"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:10Z",
+      "station_id": "GS-BRAVO",
+      "sequence": 200,
+      "event_type": "telemetry",
+      "signal_dbm": -87,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "cc8b73e0c57169d79a1e3bf58ad60698915781ed693a08e8a88b12b731068006"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:30Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 101,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "fcfa78cdd50dbc998dfb62d7efba734cfc5e5c460f72abaa21d3ee4a33d47f01"
+    },
+    {
+      "timestamp": "2026-06-01T12:00:40Z",
+      "station_id": "GS-BRAVO",
+      "sequence": 201,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 68,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "a3f7b61202e2eb93d6b5fc343781fed36b5111b3870a5392da1cfc08b767d176"
+    },
+    {
+      "timestamp": "2026-06-01T12:01:00Z",
+      "station_id": "GS-ALPHA",
+      "sequence": 102,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "2308b51ce3071c2d119a835ea8cb6d6dcab644625e22081e63cb780a29de4931"
+    },
+    {
+      "timestamp": "2026-06-01T12:01:10Z",
+      "station_id": "GS-BRAVO",
+      "sequence": 202,
+      "event_type": "telemetry",
+      "signal_dbm": -85,
+      "battery_pct": 70,
+      "temperature_c": 22,
+      "message": "Synthetic nominal telemetry.",
+      "signature": "1eee2d5adf08b2a82d919a71c4195a294920b33dfab352ba98300b3d7a0f2837"
+    }
+  ]
+}

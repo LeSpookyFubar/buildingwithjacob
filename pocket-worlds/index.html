@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#080c12" />
+<title>Pocket Worlds — Live Interactive Demo</title>
+<meta name="description" content="Explore Pocket Worlds: a tiny interactive digital aquarium, lava lamp, and orbiting space scene. A prototype you can play with on any device." />
+<meta property="og:title" content="Pocket Worlds — A tiny world, anywhere" />
+<meta property="og:description" content="Try the interactive Aquarium, Lava Lamp, and Mini Orbit — three little worlds in one pocket-sized gadget concept." />
+<meta property="og:type" content="website" />
+<style>
+:root{color-scheme:dark;--bg:#080c12;--surface:#111a24;--line:#2a3946;--teal:#89ede0;--ink:#e9f2f2;--muted:#95aab5;--coral:#f4a38a}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;background:radial-gradient(ellipse 65% 40% at 72% -10%,#183545 0%,transparent 80%),radial-gradient(ellipse 45% 45% at 0 110%,#1e1739 0%,transparent 75%),var(--bg);color:var(--ink)}
+body{padding:34px 18px 30px}.page{max-width:1120px;margin:0 auto}.mast{display:flex;align-items:center;justify-content:space-between;gap:10px}.logo{display:flex;align-items:center;gap:10px;font-weight:870;letter-spacing:.09em;font-size:12px}.mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid #6cddd3;border-radius:10px;color:#7beedd;background:#16363a}.version{color:var(--muted);font-size:11px;letter-spacing:.12em;border:1px solid #2c3b48;border-radius:100px;padding:7px 12px}.main{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(315px,.86fr);gap:48px;margin-top:64px;align-items:center}
+.kicker{font-size:11px;letter-spacing:.18em;color:#8be9d5;font-weight:850;text-transform:uppercase}.kicker i{display:inline-block;width:7px;height:7px;margin-right:8px;background:#8fead1;border-radius:100%;box-shadow:0 0 12px #77edce}h1{font-size:clamp(40px,4.9vw,67px);letter-spacing:-.062em;line-height:1.05;margin:20px 0 16px;font-weight:830}h1 span{background:linear-gradient(100deg,#a4f1de,#b6b9fc);background-clip:text;color:transparent}.intro{font-size:16px;color:#b5c7d0;line-height:1.7;max-width:490px;margin:0 0 27px}.sectionlabel{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#91a9b4;font-weight:850;margin-bottom:11px}.scene-list{display:flex;gap:9px;flex-wrap:wrap}.chip{background:#111b27;border:1px solid #31414e;border-radius:12px;padding:11px 14px;color:#cbd8dc;cursor:pointer;font:750 12px inherit;font-size:12px;font-weight:800;transition:.17s}.chip:hover,.control:hover{border-color:#6faaa9;background:#1e3037}.chip[aria-pressed=true]{background:#153a3f;border-color:#73ead8;box-shadow:inset 0 0 0 1px #73ead841;color:#c2fcf0}.chip:focus-visible,.control:focus-visible,.sidebtn:focus-visible,.power:focus-visible{outline:3px solid #9ff9e4;outline-offset:3px}
+.card{margin-top:21px;background:linear-gradient(130deg,#101b27dd,#10151edd);border:1px solid #293946;border-radius:17px;padding:19px;max-width:520px}.card p{margin:0;color:#a8b9c4;line-height:1.65;font-size:13px}.card strong{color:#ebf7f8}.features{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.tag{border:1px solid #334451;border-radius:7px;padding:7px 9px;color:#abc0c9;font-size:10px;font-weight:750;letter-spacing:.04em}.tinyprint{font-size:12px;color:#8497a3;line-height:1.65;margin-top:22px}
+.demo{min-width:0}.device-stack{display:flex;flex-direction:column;align-items:center;gap:22px}.dimension{color:#9ab1bb;font-size:11px;font-weight:740;letter-spacing:.11em;text-align:center}.dimension span{color:#8fe9d6}.device-wrap{display:flex;align-items:center;justify-content:center;min-height:420px;width:100%}.device{--s:1;position:relative;padding:16px 17px 16px;background:linear-gradient(143deg,#4b5965 0%,#1d2834 13%,#101720 47%,#1c2733 79%,#5b6d79 100%);border-radius:26px;border:1px solid #718693;box-shadow:0 24px 58px #000a,0 0 0 5px #080c12, inset 0 1px 1px #f5ffff3d;transition:width .3s,height .3s}.device.landscape{width:min(410px,93vw)}.device.portrait{width:min(267px,75vw)}.screen-housing{border:6px solid #06090f;border-radius:13px;overflow:hidden;box-shadow:inset 0 0 0 1px #7491a67a,0 0 22px #58b9b317;background:#000}.screen{width:100%;display:block;cursor:crosshair;touch-action:manipulation;image-rendering:auto}.device.landscape .screen{aspect-ratio:320/172}.device.portrait .screen{aspect-ratio:172/320}.casebottom{height:16px;display:flex;justify-content:space-between;align-items:end;padding:2px 2px 0}.micromark{font-size:8px;letter-spacing:.15em;color:#a9bac4;font-weight:850}.status-led{width:5px;height:5px;background:#91edd4;border-radius:99px;box-shadow:0 0 12px #74f9d4}.sidebtn{position:absolute;right:-8px;top:33%;height:39px;width:8px;border-radius:0 4px 4px 0;border:1px solid #738a93;background:linear-gradient(#607782,#182732);cursor:pointer}.device.portrait .sidebtn{top:29%}.usb{position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);height:5px;width:24px;border-radius:7px;background:#030508;border:1px solid #7b8b97}.device.shadow-mode{filter:brightness(.94)}
+.toolbar{width:100%;max-width:500px;margin:0 auto}.toolbar-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:11px}.toolbar-head b{font-size:11px;letter-spacing:.12em}.live{font-size:10px;color:#8de9d1;display:flex;align-items:center;gap:6px}.live i{height:5px;width:5px;border-radius:50%;background:currentColor}.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.control{color:#d5e3e8;background:#111b27;border:1px solid #334451;border-radius:10px;min-height:43px;padding:9px 7px;font-size:11px;font-weight:790;cursor:pointer}.control.primary{background:#174247;border-color:#6ad7c8;color:#dcfff6}.control:disabled{cursor:not-allowed;opacity:.4}.tips{margin:13px 0 0;text-align:center;font-size:12px;line-height:1.5;color:#95aab4;min-height:36px}.specs{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;color:#7b94a1;font-size:10px;margin:12px 0 0}.specs b{font-weight:700;color:#bdcbd1}.foot{margin:60px auto 0;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #293744;padding-top:18px;color:#708996;font-size:11px;letter-spacing:.06em}.focus-mode{padding:4px;background:#020609}.focus-mode .mast,.focus-mode .copy,.focus-mode .toolbar,.focus-mode .foot,.focus-mode .dimension{display:none}.focus-mode .main{display:block;margin:0}.focus-mode .demo{width:100%;height:calc(100dvh - 8px);display:grid;place-items:center}.focus-mode .device-wrap{min-height:0}.focus-mode .device.landscape{width:min(98vw,calc(93dvh * 320 / 172))}.focus-mode .device.portrait{width:min(86vw,calc(90dvh * 172 / 320))}.focus-mode .device-stack{gap:0}.focus-exit{display:none;position:fixed;right:12px;top:12px;z-index:9;background:#111c25e0;border:1px solid #8aa1a8;padding:11px 15px;color:white;border-radius:10px;cursor:pointer}.focus-mode .focus-exit{display:block}
+@media(max-width:860px){.main{grid-template-columns:1fr;gap:24px;margin-top:38px}.demo{grid-row:1}.copy{grid-row:2}.device-wrap{min-height:350px}.device.landscape{width:min(400px,88vw)}.intro{font-size:15px}.foot{margin-top:32px}}
+@media(max-width:460px){body{padding:19px 14px 25px}.main{margin-top:26px}.device-wrap{min-height:275px}.device.landscape{width:min(345px,89vw)}.device.portrait{width:min(234px,69vw)}.device{padding:12px 12px 13px;border-radius:21px}.screen-housing{border-width:5px}.controls{grid-template-columns:repeat(3,minmax(0,1fr))}.control{font-size:10px}.intro{line-height:1.6}.foot{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.device,.chip{transition:none}}
+ .sharebtn{display:inline-flex;align-items:center;justify-content:center;margin:0 0 20px;gap:8px;border:1px solid #6fd7c5;border-radius:12px;background:#143c40;color:#dbfff6;padding:12px 17px;font-weight:800;font-size:13px;cursor:pointer}.sharebtn:hover{background:#1b5257}.sharebtn:focus-visible{outline:3px solid #8ff9e7;outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><div class="logo"><span class="mark">◈</span> POCKET WORLDS</div><div class="version">MINI / PROTOTYPE 0.2</div></header>
+<main class="main">
+ <section class="copy">
+  <div class="kicker"><i></i> Mission 001 · Living screen</div>
+  <h1>A tiny world.<br><span>Anywhere.</span></h1>
+  <p class="intro">A pocket-size companion for your desk, shelf, or bag. Test the animated aquarium, flowing lava, and orbit scene right now—before buying a single component.</p>
+  <button class="sharebtn" id="share" type="button">♡ Share this little world</button>
+  <div class="sectionlabel">Choose a world</div>
+  <div class="scene-list" role="group" aria-label="Choose scene">
+   <button class="chip" data-scene="aquarium" aria-pressed="true">🐠 Aquarium</button>
+   <button class="chip" data-scene="lava" aria-pressed="false">🌋 Lava lamp</button>
+   <button class="chip" data-scene="space" aria-pressed="false">🪐 Mini orbit</button>
+  </div>
+  <div class="card"><p><strong>Try it:</strong> Tap the screen to feed your fish, remix the lava colors, or fire a starburst. Use the controls to rotate the simulated display, change the lighting, and save a frame. The side button switches worlds, like it would on a real gadget.</p><div class="features"><span class="tag">NO LOGIN</span><span class="tag">WORKS OFFLINE</span><span class="tag">TOUCH READY</span><span class="tag">NO HARDWARE YET</span></div></div>
+  <p class="tinyprint">Built at a simulated <strong>320 × 172</strong> landscape / <strong>172 × 320</strong> portrait resolution, matching the proposed miniature display. This browser demo is <em>not</em> ESP32 firmware; the eventual hardware build is a separate step.</p>
+ </section>
+ <section class="demo">
+  <div class="device-stack">
+   <div class="dimension" id="dimension">1.47-INCH DISPLAY STUDY <span>· 320 × 172</span></div>
+   <div class="device-wrap"><div class="device landscape" id="device"><button class="sidebtn" id="sideButton" title="Cycle world" aria-label="Cycle to next world"></button><div class="screen-housing"><canvas class="screen" id="screen" width="320" height="172" role="img" aria-label="Live interactive tiny-world simulation"></canvas></div><div class="casebottom"><div class="micromark">PW / 0.2</div><div class="status-led" id="led"></div></div><div class="usb" title="Simulated USB-C slot"></div></div></div>
+  </div>
+  <div class="toolbar"><div class="toolbar-head"><b>DEVELOPMENT CONTROLS</b><span class="live"><i></i><span id="runState">LIVE SIMULATION</span></span></div><div class="controls">
+   <button class="control primary" id="action">+ Add fish</button>
+   <button class="control" id="light">☀ Day mode</button>
+   <button class="control" id="rotate">⟳ Rotate</button>
+   <button class="control" id="pause">Ⅱ Pause</button>
+   <button class="control" id="snap">⇩ Save frame</button>
+   <button class="control" id="focus">⛶ Expand</button>
+  </div><p class="tips" id="tip" aria-live="polite">Tap anywhere inside the tank to drop fish food.</p><div class="specs"><span>ENGINE <b>Canvas 2D</b></span><span>POWER <b>USB concept</b></span><span>RENDER <b id="fps">-- FPS</b></span></div></div>
+ </section>
+</main>
+<footer class="foot"><span>INDEPENDENT PROJECT · NOT PART OF HONEYGOTCHI</span><span>YOUR LITTLE UNIVERSE / V0.2</span></footer>
+</div>
+<button class="focus-exit" id="exit" aria-label="Exit expanded screen">✕ Back</button>
+<script>
+(()=>{
+'use strict';
+const cvs=document.getElementById('screen');const c=cvs.getContext('2d',{alpha:false});
+const el=id=>document.getElementById(id);const TAU=Math.PI*2;const rnd=(min,max)=>min+Math.random()*(max-min);const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const palettes=[['#ff9e84','#fb69d5','#6e257f'],['#7eecd5','#3baddd','#145d92'],['#ffcc81','#ff6d74','#a93463'],['#c4abff','#986dff','#422a83']];
+const fishColors=[['#fbb870','#ed7861'],['#94eadc','#4aaec8'],['#d0abff','#8258d1'],['#ff93b8','#da5f96'],['#d0eeaa','#6ec9a2']];
+let scene='aquarium',portrait=false,day=true,paused=false,frameTime=0,last=0,fpsCount=0,fpsClock=0,palette=0,stars=[],fish=[],food=[],bubbles=[],sparks=[];
+const R=()=>({W:cvs.width,H:cvs.height});
+function resetParticles(){const {W,H}=R(); bubbles=Array.from({length:36},()=>({x:rnd(5,W-5),y:rnd(20,H),v:rnd(8,23),r:rnd(.5,1.65),phase:rnd(0,TAU)}));stars=Array.from({length:85},()=>({x:rnd(0,W),y:rnd(0,H),r:rnd(.25,.9),p:rnd(0,6.3)}));fish.forEach(f=>{f.x=clamp(f.x,15,W-15);f.y=clamp(f.y,25,H-24)})}
+function makeFish(){const {W,H}=R();if(fish.length>=8)return false;fish.push({x:rnd(22,W-24),y:rnd(34,H-32),dir:Math.random()<.5?-1:1,s:rnd(.78,1.16),v:rnd(10,18),phase:rnd(0,TAU),col:fishColors[fish.length%fishColors.length]});return true}
+for(let i=0;i<4;i++)makeFish();resetParticles();
+function ellipse(x,y,rx,ry,color){c.beginPath();c.ellipse(x,y,Math.max(.1,rx),Math.max(.1,ry),0,0,TAU);c.fillStyle=color;c.fill()}
+function line(x,y,X,Y,col,w=1){c.beginPath();c.moveTo(x,y);c.lineTo(X,Y);c.strokeStyle=col;c.lineWidth=w;c.stroke()}
+function bg(top,bottom){const {W,H}=R();let g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,top);g.addColorStop(1,bottom);c.fillStyle=g;c.fillRect(0,0,W,H)}
+function txt(str,x,y,size=7,color='#eef7fc',align='left'){c.font=`700 ${size}px ui-monospace,SFMono-Regular,monospace`;c.fillStyle=color;c.textAlign=align;c.fillText(str,x,y);c.textAlign='left'}
+function hud(label,sub){const {W}=R();c.fillStyle='#041322bc';c.fillRect(0,0,W,22);txt(label,9,10,8,'#eef9fe');txt(sub,9,18,5.8,'#a9e0ea');ellipse(W-10,9,2.1,2.1,'#8decd4')}
+function drawFish(f,t,dt){const {W,H}=R();const closest=food.find(p=>Math.hypot(p.x-f.x,p.y-f.y)<70);if(closest){f.dir=closest.x>f.x?1:-1;f.x+=Math.sign(closest.x-f.x)*f.v*1.65*dt;f.y+=Math.sign(closest.y-f.y)*f.v*.8*dt;if(Math.hypot(closest.x-f.x,closest.y-f.y)<8){food.splice(food.indexOf(closest),1);sparks.push({x:f.x,y:f.y,time:0})}}else{f.x+=f.dir*f.v*dt;f.y+=Math.sin(t*1.25+f.phase)*.75*dt;f.y=clamp(f.y,30,H-28);if(f.x>W-14){f.x=W-14;f.dir=-1}if(f.x<14){f.x=14;f.dir=1}}
+ c.save();c.translate(f.x,f.y+Math.sin(t*3+f.phase));c.scale(f.dir*f.s,f.s);let wag=Math.sin(t*11+f.phase)*2.5;c.fillStyle=f.col[1];c.beginPath();c.moveTo(-7,0);c.lineTo(-15,-5+wag);c.lineTo(-15,5+wag);c.closePath();c.fill();ellipse(0,0,9.5,5.3,f.col[0]);ellipse(1,2,6,2.3,'#ffffff14');c.fillStyle=f.col[1];c.beginPath();c.moveTo(-2,-3);c.lineTo(-6,-8);c.lineTo(4,-4);c.fill();ellipse(5,-1.7,1.25,1.25,'#152b3c');ellipse(5.3,-2,.37,.37,'#fff');c.restore();}
+function seaweed(x,b,t,k){for(let i=0;i<3;i++){let h=17+i*8,dx=Math.sin(t*.7+k+i)*4;line(x,b,x+dx,b-h,'#38a994',1.6);ellipse(x+dx*.65-3,b-h*.65,4,1.9,'#3ec8a6a0');ellipse(x+dx*.75+3,b-h*.42,3.4,1.8,'#7bdbc29c')}}
+function aquarium(t,dt){const {W,H}=R();bg(day?'#062c42':'#061522',day?'#117b91':'#17405a');for(let i=0;i<5;i++){c.save();c.translate(W*(i+.5)/6,0);c.rotate(.2);c.fillStyle=day?'#b7fff70c':'#9cc5ff07';c.fillRect(0,0,6,H);c.restore()}
+for(let i=0;i<48;i++)ellipse((i*83+9)%W,(i*47+23)%H,.55,.55,'#b4ffff1d');
+c.fillStyle='#255b69';c.fillRect(0,H-23,W,23);c.fillStyle='#183b49';c.fillRect(0,H-11,W,11);for(let i=0;i<75;i++)c.fillStyle=['#a8b8b8','#f1bc9d','#668490'][i%3],c.fillRect((i*47+3)%W,H-12+((i*11)%11),2,1.3);
+const rockX=W*.64;c.fillStyle='#174857';c.beginPath();c.moveTo(rockX-17,H-12);c.lineTo(rockX-12,H-30);c.lineTo(rockX+2,H-37);c.lineTo(rockX+17,H-22);c.lineTo(rockX+25,H-12);c.fill();ellipse(rockX+2,H-17,9,11,'#082b3f');
+seaweed(15,H-12,t,1);seaweed(27,H-10,t,2);seaweed(W-24,H-11,t,3);seaweed(W-37,H-11,t,4);
+for(const b of bubbles){b.y-=b.v*dt;b.x+=Math.sin(t+b.phase)*.18;if(b.y<25){b.y=H-12;b.x=rnd(8,W-8)}c.beginPath();c.arc(b.x,b.y,b.r,0,TAU);c.strokeStyle='#ddfcff8a';c.lineWidth=.7;c.stroke()}
+for(const f of food){f.y+=11*dt;ellipse(f.x,f.y,1.6,1.6,'#f6ddb2')}food=food.filter(f=>f.y<H-12);fish.forEach(f=>drawFish(f,t,dt));
+for(const s of sparks){s.time+=dt;for(let i=0;i<7;i++){const a=TAU*i/7;ellipse(s.x+Math.cos(a)*s.time*15,s.y+Math.sin(a)*s.time*15,1.2,1.2,`rgba(255,239,173,${1-s.time})`)}}sparks=sparks.filter(s=>s.time<1);
+if(!day){c.fillStyle='#01152a44';c.fillRect(0,22,W,H-22)}hud('BLUE CURRENT',`${fish.length} FISH  /  ${day?'DAYLIGHT':'MOONLIGHT'}`);
+}
+function lava(t){const {W,H}=R();bg(day?'#241238':'#0e0b24','#381b4c');for(let i=0;i<39;i++)ellipse((i*83+9)%W,(i*43+7)%H,.4,.4,'#e8b2ef35');
+const p=palettes[palette],cx=W*.5,gy=H-22;const height=Math.min(H*.69,portrait?184:99),top=gy-height;const topW=portrait?22:26,bottomW=portrait?38:51;
+c.fillStyle='#131126';c.fillRect(cx-53,gy+20,106,4);ellipse(cx,gy+22,58,5,'#080a1a');
+c.fillStyle='#6c5976';c.beginPath();c.moveTo(cx-bottomW*.67,gy);c.lineTo(cx+bottomW*.67,gy);c.lineTo(cx+bottomW*.85,gy+14);c.lineTo(cx-bottomW*.85,gy+14);c.closePath();c.fill();
+c.save();c.beginPath();c.moveTo(cx-topW,top);c.lineTo(cx+topW,top);c.lineTo(cx+bottomW,gy);c.quadraticCurveTo(cx,gy+13,cx-bottomW,gy);c.closePath();c.clip();
+const gl=c.createLinearGradient(0,top,0,gy);gl.addColorStop(0,p[2]);gl.addColorStop(.7,p[2]);gl.addColorStop(1,p[0]+'ba');c.fillStyle=gl;c.fillRect(cx-bottomW-5,top,bottomW*2+10,height+13);
+c.save();c.shadowColor=p[0];c.shadowBlur=17;for(let i=0;i<8;i++){let phase=t*(.5+i*.027)+i*1.72;let y=top+8+((i*.147+Math.sin(phase)*.06+1)%1)*(height-15);let x=cx+Math.sin(phase*.7+i*2)*Math.min(bottomW*.4,16);let r=6+i%3*2.5;ellipse(x,y,r,r*(1.2+i%3*.15),p[i%3===0?0:1]);ellipse(x-1.5,y-2,r*.46,r*.38,'#ffe4c050')}c.restore();c.restore();
+c.strokeStyle='#f0d4ff9a';c.lineWidth=1.6;c.beginPath();c.moveTo(cx-topW,top);c.lineTo(cx-bottomW,gy);c.quadraticCurveTo(cx,gy+13,cx+bottomW,gy);c.lineTo(cx+topW,top);c.stroke();line(cx-topW+5,top+6,cx-bottomW+8,gy-12,'#ffffff42',1.6);
+c.fillStyle='#8a7390';c.beginPath();c.moveTo(cx-topW-1,top+2);c.lineTo(cx-topW+4,top-9);c.lineTo(cx+topW-4,top-9);c.lineTo(cx+topW+1,top+2);c.fill();c.fillStyle='#c0a9c6';c.fillRect(cx-topW+4,top-9,topW*2-8,2);
+if(!day){c.fillStyle='#05081830';c.fillRect(0,22,W,H-22)}hud('LIQUID LIGHT',`COLORWAY ${palette+1}  /  SLOW FLOW`);
+}
+function space(t,dt){const {W,H}=R();bg(day?'#080f2a':'#05091a','#1c1946');for(const s of stars)ellipse(s.x,s.y,s.r,s.r,`rgba(210,237,255,${.4+.38*Math.sin(t*.7+s.p)})`);
+const cx=W*.5,cy=H*.55,planetR=Math.min(W,H)*.24;
+c.beginPath();c.ellipse(cx,cy,W*.37,H*.32,-.1,0,TAU);c.strokeStyle='#83baf251';c.lineWidth=1;c.stroke();
+c.save();c.shadowColor='#68bfe4';c.shadowBlur=18;ellipse(cx,cy,planetR,planetR,'#296bb4');c.restore();ellipse(cx-planetR*.25,cy-planetR*.24,planetR*.65,planetR*.6,'#3c83ca');
+c.fillStyle='#78c8a4';c.beginPath();c.moveTo(cx-planetR*.9,cy-planetR*.4);c.lineTo(cx-planetR*.5,cy-planetR*.7);c.lineTo(cx+planetR*.05,cy-planetR*.2);c.lineTo(cx-planetR*.05,cy+planetR*.19);c.lineTo(cx-planetR*.5,cy+planetR*.23);c.lineTo(cx-planetR*.7,cy+planetR*.65);c.closePath();c.fill();c.fillStyle='#75c6a1';c.beginPath();c.moveTo(cx+planetR*.35,cy+planetR*.03);c.lineTo(cx+planetR*.9,cy+planetR*.25);c.lineTo(cx+planetR*.5,cy+planetR*.73);c.lineTo(cx+planetR*.17,cy+planetR*.56);c.fill();
+let a=t*.44+.7,sx=cx+Math.cos(a)*W*.37,sy=cy+Math.sin(a)*H*.32;c.save();c.translate(sx,sy);c.rotate(-.3);c.fillStyle='#e7e9ef';c.fillRect(-3,-2,6,4);c.fillStyle='#6dbbe9';c.fillRect(-11,-4,7,8);c.fillRect(4,-4,7,8);c.fillStyle='#f7d18c';c.fillRect(-1.5,-1,3,2);c.restore();
+for(const s of sparks){s.time+=dt;for(let i=0;i<10;i++){let a=i*TAU/10;ellipse(s.x+Math.cos(a)*s.time*32,s.y+Math.sin(a)*s.time*32,.8,.8,`rgba(197,242,255,${1-s.time})`)}}sparks=sparks.filter(s=>s.time<1);hud('MINI ORBIT','ONE LITTLE UNIVERSE / ALWAYS MOVING');
+}
+const info={aquarium:'Tap anywhere inside the tank to drop fish food.',lava:'Tap the glass to cycle through four lava colors.',space:'Tap the sky to fire a miniature starburst.'};
+function syncUI(){document.querySelectorAll('[data-scene]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scene===scene)));const action=el('action');action.textContent=scene==='aquarium'?'+ Add fish':scene==='lava'?'✦ Next color':'✦ Starburst';el('tip').textContent=info[scene];el('light').textContent=day?'☀ Day mode':'☾ Night mode';el('rotate').textContent=portrait?'⟳ Landscape':'⟳ Portrait';el('pause').textContent=paused?'▶ Resume':'Ⅱ Pause';el('runState').textContent=paused?'PAUSED':'LIVE SIMULATION';el('led').style.background=paused?'#eebd88':'#91edd4'}
+function setScene(s){scene=s;food=[];sparks=[];syncUI()}
+function cycle(){let all=['aquarium','lava','space'];setScene(all[(all.indexOf(scene)+1)%all.length])}
+function rotate(){portrait=!portrait;cvs.width=portrait?172:320;cvs.height=portrait?320:172;el('device').classList.toggle('portrait',portrait);el('device').classList.toggle('landscape',!portrait);el('dimension').innerHTML=`1.47-INCH DISPLAY STUDY <span>· ${cvs.width} × ${cvs.height}</span>`;resetParticles();syncUI()}
+function interact(x,y){const {W,H}=R();if(scene==='aquarium'){food.push({x:clamp(x,6,W-6),y:clamp(y,25,H-16)});food=food.slice(-13)}else if(scene==='lava'){palette=(palette+1)%palettes.length}else{sparks.push({x,y,time:0})}}
+function frame(ts){if(!last)last=ts;let dt=clamp((ts-last)/1000,0,.05);last=ts;if(!paused)frameTime+=dt;let useDt=paused?0:dt;fpsCount++;if(ts-fpsClock>1200){el('fps').textContent=`${Math.round(fpsCount*1000/Math.max(1,ts-fpsClock))} FPS`;fpsCount=0;fpsClock=ts}if(scene==='aquarium')aquarium(frameTime,useDt);else if(scene==='lava')lava(frameTime);else space(frameTime,useDt);requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+document.querySelectorAll('[data-scene]').forEach(b=>b.addEventListener('click',()=>setScene(b.dataset.scene)));
+el('sideButton').addEventListener('click',cycle);
+el('action').addEventListener('click',()=>{const {W,H}=R();if(scene==='aquarium'){if(makeFish())el('tip').textContent=`${fish.length} fish swimming. Maximum: 8.`;else el('tip').textContent='Tank is full: maximum 8 fish.'}else interact(W*.5,H*.5)});
+el('light').addEventListener('click',()=>{day=!day;syncUI()});el('rotate').addEventListener('click',rotate);
+el('pause').addEventListener('click',()=>{paused=!paused;syncUI()});
+el('snap').addEventListener('click',()=>{try{const a=document.createElement('a');a.download=`pocket-worlds-${scene}-${portrait?'portrait':'landscape'}.png`;a.href=cvs.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove();el('tip').textContent='Frame saved as a PNG.'}catch(err){el('tip').textContent='Screenshot unavailable in this browser.'}});
+function focus(v){document.body.classList.toggle('focus-mode',v)}el('focus').addEventListener('click',()=>focus(true));el('exit').addEventListener('click',()=>focus(false));
+cvs.addEventListener('pointerdown',e=>{const r=cvs.getBoundingClientRect();interact((e.clientX-r.left)/r.width*cvs.width,(e.clientY-r.top)/r.height*cvs.height)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')focus(false);if(e.target.tagName==='BUTTON')return;if(e.key==='ArrowRight')cycle();if(e.key.toLowerCase()==='r')rotate();if(e.key===' '){e.preventDefault();paused=!paused;syncUI()}});
+document.getElementById('share').addEventListener('click',async()=>{const url=location.href.split('#')[0];if(location.protocol==='file:'){alert('This demo needs to be opened from its published web link to share it.');return;}try{if(navigator.share){await navigator.share({title:'Pocket Worlds — interactive demo',text:'Come check out my tiny digital worlds! 🐠🌋🪐',url});return}await navigator.clipboard.writeText(url);document.getElementById('share').textContent='✓ Link copied!';setTimeout(()=>document.getElementById('share').textContent='♡ Share this little world',2400)}catch(err){if(err.name!=='AbortError')prompt('Copy the demo link:',url)}});
+syncUI();
+})();
+</script>
+</body>
+</html>
